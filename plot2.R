@@ -25,14 +25,14 @@ d$DateTime <- as.POSIXct(paste(d$Date, d$Time))
 ind_valid_power = (d$Global_active_power != '?');
 glob_power <- as.numeric( as.character( d$Global_active_power[ind_valid_power] ) );
 
-hist(
-    glob_power
-    ,col = 'red'
-    #,breaks = 12
-    ,main = 'Global Active Power'
-    ,xlab = 'Global Active Power (kilowatts)'
-    ,ylab = 'Frequency'
+plot(
+    d$DateTime[ind_valid_power]
+    ,glob_power
+    ,type = 'l'
+    ,main = ''
+    ,xlab = ''
+    ,ylab = 'Global Active Power (kilowatts)'
 );
 
-dev.copy(png, 'plot1.png');
+dev.copy(png, 'plot2.png')
 dev.off()
