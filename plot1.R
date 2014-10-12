@@ -20,6 +20,7 @@ d <- d[d$Date >= '2007-02-01' & d$Date <= '2007-02-02', ];
 d$DateTime <- as.POSIXct(paste(d$Date, d$Time))
 
 # Plot
+png('plot1.png');
 
 # When plotting, skip missing values (coded as ?) and convert the factor to numeric 
 ind_valid_power = (d$Global_active_power != '?');
@@ -34,5 +35,5 @@ hist(
     ,ylab = 'Frequency'
 );
 
-dev.copy(png, 'plot1.png');
+# dev.copy(png, 'plot1.png');
 dev.off()

@@ -20,6 +20,7 @@ d <- d[d$Date >= '2007-02-01' & d$Date <= '2007-02-02', ];
 d$DateTime <- as.POSIXct(paste(d$Date, d$Time))
 
 # Plot
+png('plot3.png')
 
 # Define colors for the lines
 plot_colors <- c('black', 'red', 'blue');
@@ -53,5 +54,4 @@ legend(
     ,legend = c('Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3')
 );
 
-dev.copy(png, 'plot3.png')
 dev.off()

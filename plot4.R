@@ -20,6 +20,7 @@ d <- d[d$Date >= '2007-02-01' & d$Date <= '2007-02-02', ];
 d$DateTime <- as.POSIXct(paste(d$Date, d$Time))
 
 # Plot
+png('plot4.png')
 
 # When plotting, skip missing values (coded as ?)
 ind_valid_power = (d$Global_active_power != '?');
@@ -44,7 +45,7 @@ plot(
     ,type = 'l'
     ,main = ''
     ,xlab = ''
-    ,ylab = 'Global Active Power (kilowatts)'
+    ,ylab = 'Global Active Power'
 );
 
 plot(
@@ -86,7 +87,6 @@ plot(
     ,ylab = 'Global_reactive_power'
 );
 
-dev.copy(png, 'plot4.png')
 dev.off()
 
 par(old.par);
